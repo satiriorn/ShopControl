@@ -56,9 +56,8 @@ namespace ShopControl
             this.ButtonSearch = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tab2 = new Manina.Windows.Forms.Tab();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnConnect = new System.Windows.Forms.Button();
-            this.btnDisconnect = new System.Windows.Forms.Button();
+            this.streamCameraControl1 = new ShopControl.StreamCameraControl();
+            this.btnAddCamera = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
@@ -66,7 +65,6 @@ namespace ShopControl
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.tab2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -315,51 +313,30 @@ namespace ShopControl
             // tab2
             // 
             this.tab2.BackColor = System.Drawing.Color.Black;
-            this.tab2.Controls.Add(this.btnDisconnect);
-            this.tab2.Controls.Add(this.btnConnect);
-            this.tab2.Controls.Add(this.pictureBox1);
+            this.tab2.Controls.Add(this.btnAddCamera);
+            this.tab2.Controls.Add(this.streamCameraControl1);
             this.tab2.Location = new System.Drawing.Point(1, 21);
             this.tab2.Name = "tab2";
             this.tab2.Size = new System.Drawing.Size(868, 367);
             this.tab2.Text = "Video surveillance";
             // 
-            // pictureBox1
+            // streamCameraControl1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(39, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(166, 118);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.streamCameraControl1.BackColor = System.Drawing.Color.Black;
+            this.streamCameraControl1.Location = new System.Drawing.Point(4, 25);
+            this.streamCameraControl1.Name = "streamCameraControl1";
+            this.streamCameraControl1.Size = new System.Drawing.Size(329, 258);
+            this.streamCameraControl1.TabIndex = 0;
             // 
-            // btnConnect
+            // btnAddCamera
             // 
-            this.btnConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnConnect.FlatAppearance.BorderSize = 0;
-            this.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConnect.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnConnect.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConnect.Location = new System.Drawing.Point(688, 337);
-            this.btnConnect.Name = "btnConnect";
-            this.btnConnect.Size = new System.Drawing.Size(74, 20);
-            this.btnConnect.TabIndex = 25;
-            this.btnConnect.Text = "Connect";
-            this.btnConnect.UseVisualStyleBackColor = false;
-            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
-            // 
-            // btnDisconnect
-            // 
-            this.btnDisconnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnDisconnect.FlatAppearance.BorderSize = 0;
-            this.btnDisconnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDisconnect.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnDisconnect.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnDisconnect.Location = new System.Drawing.Point(779, 337);
-            this.btnDisconnect.Name = "btnDisconnect";
-            this.btnDisconnect.Size = new System.Drawing.Size(73, 20);
-            this.btnDisconnect.TabIndex = 26;
-            this.btnDisconnect.Text = "Disconnect";
-            this.btnDisconnect.UseVisualStyleBackColor = false;
+            this.btnAddCamera.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnAddCamera.Location = new System.Drawing.Point(4, 0);
+            this.btnAddCamera.Name = "btnAddCamera";
+            this.btnAddCamera.Size = new System.Drawing.Size(40, 26);
+            this.btnAddCamera.TabIndex = 1;
+            this.btnAddCamera.Text = "Add";
+            this.btnAddCamera.UseVisualStyleBackColor = true;
             // 
             // CMenuForm
             // 
@@ -386,7 +363,6 @@ namespace ShopControl
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             this.tab2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,9 +390,8 @@ namespace ShopControl
         private System.Windows.Forms.Button ButtonSearch;
         private System.Windows.Forms.TextBox textBox1;
         private Manina.Windows.Forms.Tab tab2;
-        private System.Windows.Forms.Button btnDisconnect;
-        private System.Windows.Forms.Button btnConnect;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private StreamCameraControl streamCameraControl1;
+        private System.Windows.Forms.Button btnAddCamera;
     }
 }
 

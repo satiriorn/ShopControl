@@ -5,14 +5,12 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
-using AForge;
 
 namespace ShopControl
 {
     public partial class CMenuForm : Form
     {
-        private MJPEGStream stream;
-        private string ConnectionString = "Data Source=eu-cdbr-west-01.cleardb.net;Initial Catalog=heroku_944d93c1a0e7204;User ID=bbdbecc8a2b4a4;Password=deff7c8b;CharSet=utf8";
+        private string ConnectionString = Environment.GetEnvironmentVariable("ConnectToDatabase");
         private MySqlConnection cnn;
         private BindingSource bindingSource;
         private DataSet ds;
@@ -66,20 +64,9 @@ namespace ShopControl
             UpdateGrid(cmd);
         }
 
-        private void bindingNavigator1_RefreshItems(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             MessageBox.Show("Add new row");
-        }
-
-
-        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -115,11 +102,6 @@ namespace ShopControl
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
-        }
-
-        private void btnConnect_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

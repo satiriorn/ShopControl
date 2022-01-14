@@ -14,6 +14,7 @@ namespace ShopControl
         [STAThread]
         static void Main()
         {
+            Env.InitEnvVariable();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new CLoginForm());

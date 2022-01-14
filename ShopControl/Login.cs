@@ -36,7 +36,7 @@ namespace ShopControl
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string ConnectionString = "Data Source=eu-cdbr-west-01.cleardb.net;Initial Catalog=heroku_944d93c1a0e7204;User ID=bbdbecc8a2b4a4;Password=deff7c8b";
+            string ConnectionString = Environment.GetEnvironmentVariable("ConnectToDatabase");
             MySqlConnection cnn;
 
             cnn = new MySqlConnection(ConnectionString);
