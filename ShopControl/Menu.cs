@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Numerics;
 
 namespace ShopControl
 {
@@ -15,6 +16,8 @@ namespace ShopControl
         private BindingSource bindingSource;
         private DataSet ds;
         private DataTable dataTable;
+        private int counter_camera;
+        private StreamCameraControl[] arrCamera;
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2; 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
@@ -25,12 +28,22 @@ namespace ShopControl
         public CMenuForm()
         {
             InitializeComponent();
+            StreamCameraControl camera = new StreamCameraControl();
+            if (camera ==null)
+                dataGridView1.ForeColor = Color.Black;
+            camera.Size = new System.Drawing.Size(330, 260);
+            camera.Location = new System.Drawing.Point(4, 29);
+
+            camera.Visible = true;
+            camera.Show();
             textBox1.Text = "";
+            counter_camera = 0;
             dataGridView1.ForeColor = Color.White;
             bindingSource = new BindingSource();
             cnn = new MySqlConnection(ConnectionString);
             ds = new DataSet();
             dataTable = new DataTable();
+            arrCamera = new StreamCameraControl[5];
             ds.Tables.Add(dataTable);
             cnn.Open();
             string sql = "SELECT * FROM PriceTag;";
@@ -102,6 +115,18 @@ namespace ShopControl
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+
+        private void btnAddCamera_Click(object sender, EventArgs e)
+        {
+            StreamCameraControl camera = new StreamCameraControl();
+            camera.Size = new Size(330, 260);
+            camera.Location = new Point(4, 29);
+            camera.Name = "Camera1";
+            this.tab2.Controls.Add(camera);
+            arrCamera[counter_camera] = camera;
+            counter_camera++;
         }
     }
 }
