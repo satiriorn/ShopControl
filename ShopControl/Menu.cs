@@ -16,6 +16,7 @@ namespace ShopControl
         private BindingSource bindingSource;
         private DataSet ds;
         private DataTable dataTable;
+        private bool full_display = false;
         private int counter_camera;
         private StreamCameraControl[] arrCamera;
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -127,6 +128,25 @@ namespace ShopControl
             this.tab2.Controls.Add(camera);
             arrCamera[counter_camera] = camera;
             counter_camera++;
+        }
+
+        private void btnFullDisplay_Click(object sender, EventArgs e)
+        {
+            if (full_display)
+            {
+                this.WindowState = FormWindowState.Normal;
+                full_display = false;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Maximized;
+                full_display = true;
+            }
+        }
+
+        private void btnHideApplication_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
