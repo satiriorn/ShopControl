@@ -32,9 +32,9 @@ namespace ShopControl
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CMenuForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.ButtonClose = new System.Windows.Forms.Button();
@@ -57,8 +57,11 @@ namespace ShopControl
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tab2 = new Manina.Windows.Forms.Tab();
             this.btnAddCamera = new System.Windows.Forms.Button();
-            this.btnFullDisplay = new System.Windows.Forms.Button();
             this.btnHideApplication = new System.Windows.Forms.Button();
+            this.btnFullDisplay = new System.Windows.Forms.Button();
+            this.streamCameraControl1 = new ShopControl.StreamCameraControl();
+            this.streamCameraControl2 = new ShopControl.StreamCameraControl();
+            this.streamCameraControl3 = new ShopControl.StreamCameraControl();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
@@ -101,7 +104,7 @@ namespace ShopControl
             this.ButtonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonClose.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonClose.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ButtonClose.Location = new System.Drawing.Point(938, 4);
+            this.ButtonClose.Location = new System.Drawing.Point(974, 2);
             this.ButtonClose.Margin = new System.Windows.Forms.Padding(1);
             this.ButtonClose.Name = "ButtonClose";
             this.ButtonClose.Size = new System.Drawing.Size(25, 23);
@@ -116,10 +119,10 @@ namespace ShopControl
             this.tabControl1.Controls.Add(this.tab1);
             this.tabControl1.Controls.Add(this.tab2);
             this.tabControl1.ForeColor = System.Drawing.Color.White;
-            this.tabControl1.Location = new System.Drawing.Point(7, 40);
+            this.tabControl1.Location = new System.Drawing.Point(0, 40);
             this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(948, 426);
+            this.tabControl1.SelectedIndex = 1;
+            this.tabControl1.Size = new System.Drawing.Size(1000, 426);
             this.tabControl1.TabIndex = 18;
             this.tabControl1.Tabs.Add(this.tab1);
             this.tabControl1.Tabs.Add(this.tab2);
@@ -131,57 +134,52 @@ namespace ShopControl
             this.tab1.Controls.Add(this.bindingNavigator1);
             this.tab1.Controls.Add(this.ButtonSearch);
             this.tab1.Controls.Add(this.textBox1);
-            this.tab1.Location = new System.Drawing.Point(1, 21);
+            this.tab1.Location = new System.Drawing.Point(0, 0);
             this.tab1.Name = "tab1";
-            this.tab1.Size = new System.Drawing.Size(946, 404);
+            this.tab1.Size = new System.Drawing.Size(0, 0);
             this.tab1.Text = "Price Tags";
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.GridColor = System.Drawing.Color.Black;
             this.dataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.dataGridView1.Location = new System.Drawing.Point(-1, 63);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(944, 301);
+            this.dataGridView1.Size = new System.Drawing.Size(954, 342);
             this.dataGridView1.TabIndex = 26;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
             // 
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.bindingNavigator1.BackColor = System.Drawing.Color.DimGray;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bindingNavigator1.Dock = System.Windows.Forms.DockStyle.None;
             this.bindingNavigator1.GripMargin = new System.Windows.Forms.Padding(0);
             this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
@@ -202,7 +200,8 @@ namespace ShopControl
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(251, 25);
+            this.bindingNavigator1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.bindingNavigator1.Size = new System.Drawing.Size(0, 25);
             this.bindingNavigator1.TabIndex = 25;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -212,14 +211,14 @@ namespace ShopControl
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.ForeColor = System.Drawing.Color.White;
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 15);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -229,7 +228,7 @@ namespace ShopControl
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -238,7 +237,7 @@ namespace ShopControl
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -247,7 +246,7 @@ namespace ShopControl
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
@@ -275,7 +274,7 @@ namespace ShopControl
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -284,7 +283,7 @@ namespace ShopControl
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 20);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
@@ -294,8 +293,6 @@ namespace ShopControl
             // 
             // ButtonSearch
             // 
-            this.ButtonSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ButtonSearch.FlatAppearance.BorderSize = 0;
             this.ButtonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -311,8 +308,6 @@ namespace ShopControl
             // 
             // textBox1
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.BackColor = System.Drawing.Color.DimGray;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
@@ -324,11 +319,14 @@ namespace ShopControl
             // tab2
             // 
             this.tab2.BackColor = System.Drawing.Color.Black;
+            this.tab2.Controls.Add(this.streamCameraControl3);
+            this.tab2.Controls.Add(this.streamCameraControl2);
+            this.tab2.Controls.Add(this.streamCameraControl1);
             this.tab2.Controls.Add(this.btnAddCamera);
             this.tab2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tab2.Location = new System.Drawing.Point(1, 21);
             this.tab2.Name = "tab2";
-            this.tab2.Size = new System.Drawing.Size(946, 404);
+            this.tab2.Size = new System.Drawing.Size(998, 404);
             this.tab2.Text = "Video surveillance";
             // 
             // btnAddCamera
@@ -346,23 +344,6 @@ namespace ShopControl
             this.btnAddCamera.UseVisualStyleBackColor = false;
             this.btnAddCamera.Click += new System.EventHandler(this.btnAddCamera_Click);
             // 
-            // btnFullDisplay
-            // 
-            this.btnFullDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFullDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnFullDisplay.FlatAppearance.BorderSize = 0;
-            this.btnFullDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFullDisplay.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFullDisplay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnFullDisplay.Location = new System.Drawing.Point(911, 4);
-            this.btnFullDisplay.Margin = new System.Windows.Forms.Padding(1);
-            this.btnFullDisplay.Name = "btnFullDisplay";
-            this.btnFullDisplay.Size = new System.Drawing.Size(25, 23);
-            this.btnFullDisplay.TabIndex = 19;
-            this.btnFullDisplay.Text = "[]";
-            this.btnFullDisplay.UseVisualStyleBackColor = false;
-            this.btnFullDisplay.Click += new System.EventHandler(this.btnFullDisplay_Click);
-            // 
             // btnHideApplication
             // 
             this.btnHideApplication.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -371,21 +352,71 @@ namespace ShopControl
             this.btnHideApplication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHideApplication.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHideApplication.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnHideApplication.Location = new System.Drawing.Point(884, 4);
+            this.btnHideApplication.Location = new System.Drawing.Point(920, 2);
             this.btnHideApplication.Margin = new System.Windows.Forms.Padding(1);
             this.btnHideApplication.Name = "btnHideApplication";
             this.btnHideApplication.Size = new System.Drawing.Size(25, 23);
-            this.btnHideApplication.TabIndex = 20;
+            this.btnHideApplication.TabIndex = 22;
             this.btnHideApplication.Text = "—";
             this.btnHideApplication.UseVisualStyleBackColor = false;
             this.btnHideApplication.Click += new System.EventHandler(this.btnHideApplication_Click);
+            // 
+            // btnFullDisplay
+            // 
+            this.btnFullDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnFullDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnFullDisplay.FlatAppearance.BorderSize = 0;
+            this.btnFullDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFullDisplay.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFullDisplay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnFullDisplay.Location = new System.Drawing.Point(947, 2);
+            this.btnFullDisplay.Margin = new System.Windows.Forms.Padding(1);
+            this.btnFullDisplay.Name = "btnFullDisplay";
+            this.btnFullDisplay.Size = new System.Drawing.Size(25, 23);
+            this.btnFullDisplay.TabIndex = 21;
+            this.btnFullDisplay.Text = "[]";
+            this.btnFullDisplay.UseVisualStyleBackColor = false;
+            this.btnFullDisplay.Click += new System.EventHandler(this.btnFullDisplay_Click);
+            // 
+            // streamCameraControl1
+            // 
+            this.streamCameraControl1.AutoSize = true;
+            this.streamCameraControl1.BackColor = System.Drawing.Color.Black;
+            this.streamCameraControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.streamCameraControl1.full_camera = false;
+            this.streamCameraControl1.Location = new System.Drawing.Point(6, 29);
+            this.streamCameraControl1.Name = "streamCameraControl1";
+            this.streamCameraControl1.Size = new System.Drawing.Size(328, 256);
+            this.streamCameraControl1.TabIndex = 26;
+            // 
+            // streamCameraControl2
+            // 
+            this.streamCameraControl2.AutoSize = true;
+            this.streamCameraControl2.BackColor = System.Drawing.Color.Black;
+            this.streamCameraControl2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.streamCameraControl2.full_camera = false;
+            this.streamCameraControl2.Location = new System.Drawing.Point(331, 29);
+            this.streamCameraControl2.Name = "streamCameraControl2";
+            this.streamCameraControl2.Size = new System.Drawing.Size(328, 256);
+            this.streamCameraControl2.TabIndex = 27;
+            // 
+            // streamCameraControl3
+            // 
+            this.streamCameraControl3.AutoSize = true;
+            this.streamCameraControl3.BackColor = System.Drawing.Color.Black;
+            this.streamCameraControl3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.streamCameraControl3.full_camera = false;
+            this.streamCameraControl3.Location = new System.Drawing.Point(656, 29);
+            this.streamCameraControl3.Name = "streamCameraControl3";
+            this.streamCameraControl3.Size = new System.Drawing.Size(328, 256);
+            this.streamCameraControl3.TabIndex = 28;
             // 
             // CMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(973, 471);
+            this.ClientSize = new System.Drawing.Size(1000, 471);
             this.Controls.Add(this.btnHideApplication);
             this.Controls.Add(this.btnFullDisplay);
             this.Controls.Add(this.tabControl1);
@@ -407,6 +438,7 @@ namespace ShopControl
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             this.tab2.ResumeLayout(false);
+            this.tab2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,8 +467,11 @@ namespace ShopControl
         private System.Windows.Forms.TextBox textBox1;
         private Manina.Windows.Forms.Tab tab2;
         private System.Windows.Forms.Button btnAddCamera;
-        private System.Windows.Forms.Button btnFullDisplay;
         private System.Windows.Forms.Button btnHideApplication;
+        private System.Windows.Forms.Button btnFullDisplay;
+        private StreamCameraControl streamCameraControl3;
+        private StreamCameraControl streamCameraControl2;
+        private StreamCameraControl streamCameraControl1;
     }
 }
 

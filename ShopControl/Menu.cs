@@ -12,11 +12,11 @@ namespace ShopControl
     public partial class CMenuForm : Form
     {
         private string ConnectionString = Environment.GetEnvironmentVariable("ConnectToDatabase");
+        private bool full_display = false;
         private MySqlConnection cnn;
         private BindingSource bindingSource;
         private DataSet ds;
         private DataTable dataTable;
-        private bool full_display = false;
         private int counter_camera;
         private StreamCameraControl[] arrCamera;
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -130,16 +130,19 @@ namespace ShopControl
             counter_camera++;
         }
 
+
         private void btnFullDisplay_Click(object sender, EventArgs e)
         {
             if (full_display)
             {
                 this.WindowState = FormWindowState.Normal;
+                this.tabControl1.Size = new System.Drawing.Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
                 full_display = false;
             }
             else
             {
                 this.WindowState = FormWindowState.Maximized;
+                this.tabControl1.Size = new System.Drawing.Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
                 full_display = true;
             }
         }

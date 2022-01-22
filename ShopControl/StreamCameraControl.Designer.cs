@@ -39,6 +39,7 @@
             // 
             // btnDisconnect
             // 
+            this.btnDisconnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDisconnect.AutoSize = true;
             this.btnDisconnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnDisconnect.FlatAppearance.BorderSize = 0;
@@ -55,6 +56,7 @@
             // 
             // btnConnect
             // 
+            this.btnConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnConnect.AutoSize = true;
             this.btnConnect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnConnect.FlatAppearance.BorderSize = 0;
@@ -71,6 +73,9 @@
             // 
             // CameraBox1
             // 
+            this.CameraBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CameraBox1.Location = new System.Drawing.Point(14, 3);
             this.CameraBox1.Name = "CameraBox1";
             this.CameraBox1.Size = new System.Drawing.Size(303, 222);
@@ -81,6 +86,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.textBox1.BackColor = System.Drawing.Color.DimGray;
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
@@ -92,6 +98,7 @@
             // 
             // ButtonClose
             // 
+            this.ButtonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ButtonClose.FlatAppearance.BorderSize = 0;
             this.ButtonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -109,6 +116,7 @@
             // 
             // btnFullCamera
             // 
+            this.btnFullCamera.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFullCamera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.btnFullCamera.FlatAppearance.BorderSize = 0;
             this.btnFullCamera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -122,13 +130,15 @@
             this.btnFullCamera.Text = "[ ]";
             this.btnFullCamera.UseVisualStyleBackColor = false;
             this.btnFullCamera.Visible = false;
-            this.btnFullCamera.Click += new System.EventHandler(this.button1_Click);
+            this.btnFullCamera.Click += new System.EventHandler(this.btnFullCamera_Click);
             // 
             // StreamCameraControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.Black;
+            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.btnFullCamera);
             this.Controls.Add(this.ButtonClose);
             this.Controls.Add(this.textBox1);
@@ -136,7 +146,7 @@
             this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.CameraBox1);
             this.Name = "StreamCameraControl";
-            this.Size = new System.Drawing.Size(330, 258);
+            this.Size = new System.Drawing.Size(328, 256);
             this.MouseLeave += new System.EventHandler(this.StreamCameraControl_MouseLeave);
             ((System.ComponentModel.ISupportInitialize)(this.CameraBox1)).EndInit();
             this.ResumeLayout(false);
