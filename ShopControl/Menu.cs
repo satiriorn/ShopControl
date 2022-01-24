@@ -7,7 +7,7 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace ShopControl
 {
-    public partial class Menu : KryptonForm
+    public partial class CMenu : KryptonForm
     {
         private string ConnectionString = Environment.GetEnvironmentVariable("ConnectToDatabase");
         private int camera_stream_width = 330;
@@ -19,7 +19,7 @@ namespace ShopControl
         private Point location_stream_camera;
         private int counter_camera;
         private StreamCameraControl[] arrCamera;
-        public Menu()
+        public CMenu()
         {
             InitializeComponent();
             StreamCameraControl camera = new StreamCameraControl();

@@ -3,18 +3,12 @@ using System;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
 namespace ShopControl
 {
-    public partial class CLoginForm : Form
+    public partial class CLoginForm : KryptonForm
     {
-        public const int WM_NCLBUTTONDOWN = 0xA1;
-        public const int HT_CAPTION = 0x2;
-
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        public static extern bool ReleaseCapture();
         public CLoginForm()
         {
             InitializeComponent();
@@ -25,16 +19,13 @@ namespace ShopControl
         private void textBox2_TextChanged(object sender, EventArgs e) => textBox2.PasswordChar = '*';
 
 
-        private void Login_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
-            }
+            ProcessStartInfo sInfo = new ProcessStartInfo("https://github.com/satiriorn");
+            Process.Start(sInfo);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnSignIn_Click(object sender, EventArgs e)
         {
             string ConnectionString = Environment.GetEnvironmentVariable("ConnectToDatabase");
             MySqlConnection cnn;
@@ -43,7 +34,7 @@ namespace ShopControl
             try
             {
                 cnn.Open();
-                
+
                 string sql = String.Format("SELECT * FROM Admin Where Login = '{0}' and Password = '{1}';", textBox1.Text, textBox2.Text);
                 MySqlCommand cmd = new MySqlCommand(sql, cnn);
                 using (MySqlDataReader rdr = cmd.ExecuteReader())
@@ -52,7 +43,7 @@ namespace ShopControl
                     {
                         while (rdr.Read())
                         {
-                            Form form = new Menu();
+                            Form form = new CMenu();
                             this.Hide();
                             form.Closed += (s, args) => this.Close();
                             form.Show();
@@ -70,18 +61,5 @@ namespace ShopControl
                 MessageBox.Show("Something went wrong");
             }
         }
-
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            ProcessStartInfo sInfo = new ProcessStartInfo("https://github.com/satiriorn");
-            Process.Start(sInfo);
-        }
-
     }
 }
