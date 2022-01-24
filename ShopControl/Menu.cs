@@ -13,10 +13,13 @@ namespace ShopControl
     {
         private string ConnectionString = Environment.GetEnvironmentVariable("ConnectToDatabase");
         private bool full_display = false;
+        private int camera_stream_width = 330;
+        private int camera_stream_height = 260;
         private MySqlConnection cnn;
         private BindingSource bindingSource;
         private DataSet ds;
         private DataTable dataTable;
+        private Point location_stream_camera;
         private int counter_camera;
         private StreamCameraControl[] arrCamera;
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -34,7 +37,9 @@ namespace ShopControl
                 dataGridView1.ForeColor = Color.Black;
             camera.Size = new System.Drawing.Size(330, 260);
             camera.Location = new System.Drawing.Point(4, 29);
-
+            //tabControl1.AutoScroll = true;
+            //this.tab2.Controls.Add(vScrollBar1);
+            //Add(vScrollBar1);
             camera.Visible = true;
             camera.Show();
             textBox1.Text = "";
@@ -44,7 +49,7 @@ namespace ShopControl
             cnn = new MySqlConnection(ConnectionString);
             ds = new DataSet();
             dataTable = new DataTable();
-            arrCamera = new StreamCameraControl[5];
+            arrCamera = new StreamCameraControl[20];
             ds.Tables.Add(dataTable);
             cnn.Open();
             string sql = "SELECT * FROM PriceTag;";
@@ -122,9 +127,23 @@ namespace ShopControl
         private void btnAddCamera_Click(object sender, EventArgs e)
         {
             StreamCameraControl camera = new StreamCameraControl();
-            camera.Size = new Size(330, 260);
-            camera.Location = new Point(4, 29);
-            camera.Name = "Camera1";
+            camera.Size = new Size(camera_stream_width, camera_stream_height);
+            if (counter_camera == 0)
+            {
+                location_stream_camera = new Point(4, 30);
+            }
+            else {
+                if((location_stream_camera.X + (camera_stream_width*2)) < Screen.PrimaryScreen.Bounds.Width)
+                    location_stream_camera.X += camera_stream_width;
+                else
+                {
+                    location_stream_camera.Y += camera_stream_height;
+                    location_stream_camera.X = 4;
+                   // if ((location_stream_camera.Y*2) > Screen.PrimaryScreen.Bounds.Height) vScrollBar1.Visible = true;
+                }
+            }
+            camera.Location = location_stream_camera;
+            camera.Name = String.Format("Camera{0}", counter_camera);
             this.tab2.Controls.Add(camera);
             arrCamera[counter_camera] = camera;
             counter_camera++;
@@ -132,7 +151,7 @@ namespace ShopControl
 
 
         private void btnFullDisplay_Click(object sender, EventArgs e)
-        {
+        {   
             if (full_display)
             {
                 this.WindowState = FormWindowState.Normal;
@@ -151,5 +170,6 @@ namespace ShopControl
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
     }
 }

@@ -59,9 +59,7 @@ namespace ShopControl
             this.btnAddCamera = new System.Windows.Forms.Button();
             this.btnHideApplication = new System.Windows.Forms.Button();
             this.btnFullDisplay = new System.Windows.Forms.Button();
-            this.streamCameraControl1 = new ShopControl.StreamCameraControl();
-            this.streamCameraControl2 = new ShopControl.StreamCameraControl();
-            this.streamCameraControl3 = new ShopControl.StreamCameraControl();
+            this.customInstaller1 = new MySql.Data.MySqlClient.CustomInstaller();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tab1.SuspendLayout();
@@ -319,9 +317,6 @@ namespace ShopControl
             // tab2
             // 
             this.tab2.BackColor = System.Drawing.Color.Black;
-            this.tab2.Controls.Add(this.streamCameraControl3);
-            this.tab2.Controls.Add(this.streamCameraControl2);
-            this.tab2.Controls.Add(this.streamCameraControl1);
             this.tab2.Controls.Add(this.btnAddCamera);
             this.tab2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.tab2.Location = new System.Drawing.Point(1, 21);
@@ -378,39 +373,6 @@ namespace ShopControl
             this.btnFullDisplay.UseVisualStyleBackColor = false;
             this.btnFullDisplay.Click += new System.EventHandler(this.btnFullDisplay_Click);
             // 
-            // streamCameraControl1
-            // 
-            this.streamCameraControl1.AutoSize = true;
-            this.streamCameraControl1.BackColor = System.Drawing.Color.Black;
-            this.streamCameraControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.streamCameraControl1.full_camera = false;
-            this.streamCameraControl1.Location = new System.Drawing.Point(6, 29);
-            this.streamCameraControl1.Name = "streamCameraControl1";
-            this.streamCameraControl1.Size = new System.Drawing.Size(328, 256);
-            this.streamCameraControl1.TabIndex = 26;
-            // 
-            // streamCameraControl2
-            // 
-            this.streamCameraControl2.AutoSize = true;
-            this.streamCameraControl2.BackColor = System.Drawing.Color.Black;
-            this.streamCameraControl2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.streamCameraControl2.full_camera = false;
-            this.streamCameraControl2.Location = new System.Drawing.Point(331, 29);
-            this.streamCameraControl2.Name = "streamCameraControl2";
-            this.streamCameraControl2.Size = new System.Drawing.Size(328, 256);
-            this.streamCameraControl2.TabIndex = 27;
-            // 
-            // streamCameraControl3
-            // 
-            this.streamCameraControl3.AutoSize = true;
-            this.streamCameraControl3.BackColor = System.Drawing.Color.Black;
-            this.streamCameraControl3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.streamCameraControl3.full_camera = false;
-            this.streamCameraControl3.Location = new System.Drawing.Point(656, 29);
-            this.streamCameraControl3.Name = "streamCameraControl3";
-            this.streamCameraControl3.Size = new System.Drawing.Size(328, 256);
-            this.streamCameraControl3.TabIndex = 28;
-            // 
             // CMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,7 +400,6 @@ namespace ShopControl
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             this.tab2.ResumeLayout(false);
-            this.tab2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -469,9 +430,7 @@ namespace ShopControl
         private System.Windows.Forms.Button btnAddCamera;
         private System.Windows.Forms.Button btnHideApplication;
         private System.Windows.Forms.Button btnFullDisplay;
-        private StreamCameraControl streamCameraControl3;
-        private StreamCameraControl streamCameraControl2;
-        private StreamCameraControl streamCameraControl1;
+        private MySql.Data.MySqlClient.CustomInstaller customInstaller1;
     }
 }
 
