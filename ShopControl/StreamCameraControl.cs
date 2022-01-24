@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using AForge.Video;
 
@@ -48,14 +42,14 @@ namespace ShopControl
 
         private void CameraBox1_MouseHover(object sender, EventArgs e)
         {
-            ButtonClose.Visible = true;
-            btnFullCamera.Visible = true;
+            BtnClose.Visible = true;
+            BtnFullCamera.Visible = true;
         }
 
         private void StreamCameraControl_MouseLeave(object sender, EventArgs e)
         {
-            ButtonClose.Visible = false;
-            btnFullCamera.Visible = false;
+            BtnClose.Visible = false;
+            BtnFullCamera.Visible = false;
         }
 
         private void btnFullCamera_Click(object sender, EventArgs e)
