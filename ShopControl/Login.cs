@@ -52,7 +52,7 @@ namespace ShopControl
                     {
                         while (rdr.Read())
                         {
-                            Form form = new CMenuForm();
+                            Form form = new Menu();
                             this.Hide();
                             form.Closed += (s, args) => this.Close();
                             form.Show();
