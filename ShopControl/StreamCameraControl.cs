@@ -17,7 +17,6 @@ namespace ShopControl
                 Connect(link);
         }
         
-        
         private void textBox1_TextChanged(object sender, EventArgs e) => textBox1.PasswordChar = '*';
         private void stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
@@ -32,6 +31,7 @@ namespace ShopControl
         private void Connect(string link)
         {
             try {
+                textBox1.Text = link;
                 stream = new MJPEGStream(link);
                 stream.NewFrame += stream_NewFrame;
                 stream.Start();

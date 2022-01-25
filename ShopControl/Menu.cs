@@ -147,7 +147,6 @@ namespace ShopControl
             cmd = new MySqlCommand("SELECT Link from StreamCamera;", ConnectSql());
             rdr = cmd.ExecuteReader();
             rdr.Read();
-            MessageBox.Show(count_camera.ToString());
             for (int i = 0; i < count_camera; i++) {
                 Create_New_Camera(rdr.GetString(i));
             }
@@ -200,6 +199,43 @@ namespace ShopControl
                     textBox1.Text = "Enter a price to search above this price";
                     break;
             }
+        }
+
+        private void kryptonPage2_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            for (int i = 0; i < counter_camera; i++)
+            {
+                if (arrCamera[i].Disposing)
+                {
+                    for(int j = i; j < counter_camera; j++)
+                    { 
+                        if (arrCamera[j + 1] != null)
+                        {
+                            for (int z = j + 1; z < counter_camera; z++)
+                            {
+                                var loс = arrCamera[j].Location;
+                                var cam = arrCamera[j];
+                                arrCamera[j].Location = arrCamera[z].Location;
+                                arrCamera[j] = arrCamera[z];
+                                arrCamera[z].Location = loс;
+                                arrCamera[z] = cam;
+                            }
+                        }
+                        else
+                        {
+                            location_stream_camera = arrCamera[j-1].Location;
+                            arrCamera[j] = null;
+                        }
+                    }
+                    counter_camera--;
+                }
+            }
+        }
+
+        private void BtnClear_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < counter_camera; i++)
+                this.kryptonPage2.Controls.Remove(arrCamera[i]);
         }
     }
 }
