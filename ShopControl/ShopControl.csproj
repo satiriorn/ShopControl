@@ -168,20 +168,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Scripts\bower.json" />
-    <None Include="Scripts\build.log" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bindingNavigatorAddNewItem.Image.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Scripts\LICENSE.txt" />
-    <Content Include="Scripts\polymer-micro.html" />
-    <Content Include="Scripts\polymer-mini.html" />
-    <Content Include="Scripts\polymer.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

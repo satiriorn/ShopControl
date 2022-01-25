@@ -12,7 +12,6 @@ namespace ShopControl
         private string ConnectionString = Environment.GetEnvironmentVariable("ConnectToDatabase");
         private int camera_stream_width = 330;
         private int camera_stream_height = 260;
-        private MySqlConnection cnn;
         private BindingSource bindingSource;
         private DataSet ds;
         private DataTable dataTable;
@@ -22,31 +21,24 @@ namespace ShopControl
         public CMenu()
         {
             InitializeComponent();
-            StreamCameraControl camera = new StreamCameraControl();
-            if (camera == null)
-                DataGridView1.ForeColor = Color.Black;
-            camera.Size = new System.Drawing.Size(330, 260);
-            camera.Location = new System.Drawing.Point(4, 29);
-            camera.Visible = true;
-            camera.Show();
-            textBox1.Text = "";
             counter_camera = 0;
             DataGridView1.ForeColor = Color.White;
             bindingSource = new BindingSource();
-            cnn = new MySqlConnection(ConnectionString);
             ds = new DataSet();
             dataTable = new DataTable();
-            arrCamera = new StreamCameraControl[20];
+            arrCamera = new StreamCameraControl[50];
             ds.Tables.Add(dataTable);
-            cnn.Open();
-            string sql = "SELECT * FROM PriceTag;";
-            MySqlCommand cmd = new MySqlCommand(sql, cnn);
-            UpdateGrid(cmd);
+            UpdateGrid();
         }
-        private void UpdateGrid(MySqlCommand cmd)
+        private void UpdateGrid(MySqlCommand cmd = null)
         {
             ds.Clear();
             dataTable.Clear();
+            if(cmd == null)
+            {
+                cmd = new MySqlCommand("SELECT * FROM PriceTag;", ConnectSql());
+            }
+            
             using (MySqlDataReader rdr = cmd.ExecuteReader())
             {
                 ds.EnforceConstraints = false;
@@ -59,10 +51,39 @@ namespace ShopControl
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            MySqlCommand cmd = (textBox1.Text.Length > 0) ? new MySqlCommand(String.Format("SELECT * FROM PriceTag Where id_Tag = {0};", textBox1.Text), cnn) :
-                new MySqlCommand("SELECT * FROM PriceTag;", cnn);
-
-            UpdateGrid(cmd);
+            switch (this.ComboBoxForSearch.SelectedIndex)
+            {
+                case -1:
+                    MessageBox.Show("You didn't choose kind for search");
+                    break;
+                case 0:
+                    UpdateGrid(new MySqlCommand(String.Format("SELECT * FROM PriceTag Where id_Tag = {0};", textBox1.Text), ConnectSql()));
+                    break;
+                case 1:
+                    UpdateGrid(new MySqlCommand(String.Format("SELECT * FROM PriceTag Where title LIKE '%{0}%';", textBox1.Text), ConnectSql()));
+                    break;
+                case 2:
+                    UpdateGrid(new MySqlCommand(String.Format("SELECT * FROM PriceTag Where Price = {0};", textBox1.Text), ConnectSql()));
+                    break;
+                case 3:
+                    UpdateGrid(new MySqlCommand(String.Format("SELECT * FROM PriceTag Where Price >= {0};", textBox1.Text), ConnectSql()));
+                    break;
+                case 4:
+                    UpdateGrid(new MySqlCommand(String.Format("SELECT * FROM PriceTag Where Price <= {0};", textBox1.Text), ConnectSql()));
+                    break;
+                case 5:
+                    UpdateGrid(new MySqlCommand(String.Format("SELECT * FROM PriceTag Where Description LIKE '%{0}%';", textBox1.Text), ConnectSql()));
+                    break;
+                case 6:
+                    UpdateGrid(new MySqlCommand(String.Format("SELECT * FROM PriceTag Where SalePrice = {0};", textBox1.Text), ConnectSql()));
+                    break;
+                case 7:
+                    UpdateGrid(new MySqlCommand(String.Format("SELECT * FROM PriceTag Where SalePrice >= {0};", textBox1.Text), ConnectSql()));
+                    break;
+                case 8:
+                    UpdateGrid(new MySqlCommand(String.Format("SELECT * FROM PriceTag Where SalePrice <= {0};", textBox1.Text), ConnectSql()));
+                    break;
+            }
         }
 
 
@@ -75,8 +96,8 @@ namespace ShopControl
                 var name = dataTable.Columns[y];
 
                 MySqlCommand cmd = (y == 3 || y == 5 || y == 6) ?
-                new MySqlCommand(String.Format("UPDATE PriceTag SET {0}={1} WHERE id_Tag ={2};", name, x[y].ToString().Replace(",", "."), x[0]), cnn) :
-                new MySqlCommand(String.Format("UPDATE PriceTag SET {0}='{1}' WHERE id_Tag ={2};", name, x[y].ToString(), x[0]), cnn);
+                new MySqlCommand(String.Format("UPDATE PriceTag SET {0}={1} WHERE id_Tag ={2};", name, x[y].ToString().Replace(",", "."), x[0]), ConnectSql()) :
+                new MySqlCommand(String.Format("UPDATE PriceTag SET {0}='{1}' WHERE id_Tag ={2};", name, x[y].ToString(), x[0]), ConnectSql());
                 cmd.ExecuteNonQuery();
                 MessageBox.Show(x[y].ToString());
             }
@@ -102,7 +123,6 @@ namespace ShopControl
                 {
                     location_stream_camera.Y += camera_stream_height;
                     location_stream_camera.X = 4;
-                    // if ((location_stream_camera.Y*2) > Screen.PrimaryScreen.Bounds.Height) vScrollBar1.Visible = true;
                 }
             }
             camera.Location = location_stream_camera;
@@ -110,6 +130,26 @@ namespace ShopControl
             this.kryptonPage2.Controls.Add(camera);
             arrCamera[counter_camera] = camera;
             counter_camera++;
+        }
+
+        private void BtnLoad_Click(object sender, EventArgs e)
+        {
+
+        }
+        private MySqlConnection ConnectSql()
+        {
+            MySqlConnection cnn = new MySqlConnection(ConnectionString);
+            cnn.Open();
+            return cnn;
+        }
+        private void textbox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+        }
+
+        private void BtnShowAll_Click(object sender, EventArgs e)
+        {
+            UpdateGrid();
         }
     }
 }
