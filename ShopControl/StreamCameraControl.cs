@@ -10,14 +10,16 @@ namespace ShopControl
         private MJPEGStream stream;
         private Point location;
         public bool full_camera = false;
-        public StreamCameraControl()
+        public StreamCameraControl(string link = "")
         {
             InitializeComponent();
+            if (link!="")
+                Connect(link);
         }
         
         
         private void textBox1_TextChanged(object sender, EventArgs e) => textBox1.PasswordChar = '*';
-        void stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        private void stream_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Bitmap bmp = (Bitmap)eventArgs.Frame.Clone();
             CameraBox1.Image = bmp;
@@ -25,11 +27,21 @@ namespace ShopControl
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            stream = new MJPEGStream(textBox1.Text);
-            stream.NewFrame += stream_NewFrame;
-            stream.Start();
+            Connect(textBox1.Text);
         }
+        private void Connect(string link)
+        {
+            try {
+                stream = new MJPEGStream(link);
+                stream.NewFrame += stream_NewFrame;
+                stream.Start();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(String.Format("Something went wrong:{0}", ex.ToString()));
+            }
 
+        }
         private void btnDisconnect_Click(object sender, EventArgs e)
         {
             stream.Stop();

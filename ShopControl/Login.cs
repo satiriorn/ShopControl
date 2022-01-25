@@ -58,7 +58,7 @@ namespace ShopControl
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show(String.Format("Something went wrong:{0}",ex.ToString()));
             }
         }
     }

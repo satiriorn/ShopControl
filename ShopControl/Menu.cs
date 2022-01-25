@@ -38,7 +38,6 @@ namespace ShopControl
             {
                 cmd = new MySqlCommand("SELECT * FROM PriceTag;", ConnectSql());
             }
-            
             using (MySqlDataReader rdr = cmd.ExecuteReader())
             {
                 ds.EnforceConstraints = false;
@@ -103,14 +102,27 @@ namespace ShopControl
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something went wrong");
+                MessageBox.Show(String.Format("Something went wrong:{0}", ex.ToString()));
             }
         }
 
         private void BtnAddNewStreamCamera_Click(object sender, EventArgs e)
         {
-            StreamCameraControl camera = new StreamCameraControl();
+            Create_New_Camera();
+        }
+        private StreamCameraControl Create_New_Camera(string link = "")
+        {
+            StreamCameraControl camera = (link!="") ? new StreamCameraControl(link) : new StreamCameraControl();
             camera.Size = new Size(camera_stream_width, camera_stream_height);
+            Calculation_Location_Camera();
+            camera.Location = location_stream_camera;
+            camera.Name = String.Format("Camera{0}", counter_camera);
+            this.kryptonPage2.Controls.Add(camera);
+            arrCamera[counter_camera] = camera;
+            counter_camera++;
+            return camera;
+        }
+        private void Calculation_Location_Camera(){
             if (counter_camera == 0)
             {
                 location_stream_camera = new Point(4, 30);
@@ -125,16 +137,20 @@ namespace ShopControl
                     location_stream_camera.X = 4;
                 }
             }
-            camera.Location = location_stream_camera;
-            camera.Name = String.Format("Camera{0}", counter_camera);
-            this.kryptonPage2.Controls.Add(camera);
-            arrCamera[counter_camera] = camera;
-            counter_camera++;
         }
-
         private void BtnLoad_Click(object sender, EventArgs e)
         {
-
+            MySqlCommand cmd = new MySqlCommand("SELECT count(*) from StreamCamera;", ConnectSql());
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            rdr.Read();
+            int count_camera = rdr.GetInt32(0);
+            cmd = new MySqlCommand("SELECT Link from StreamCamera;", ConnectSql());
+            rdr = cmd.ExecuteReader();
+            rdr.Read();
+            MessageBox.Show(count_camera.ToString());
+            for (int i = 0; i < count_camera; i++) {
+                Create_New_Camera(rdr.GetString(i));
+            }
         }
         private MySqlConnection ConnectSql()
         {
@@ -150,6 +166,40 @@ namespace ShopControl
         private void BtnShowAll_Click(object sender, EventArgs e)
         {
             UpdateGrid();
+        }
+
+        private void ComboBoxForSearch_SelectedValueChanged(object sender, EventArgs e)
+        {
+            switch (this.ComboBoxForSearch.SelectedIndex)
+            {
+                case 0:
+                    textBox1.Text = "Enter number";
+                    break;
+                case 1:
+                    textBox1.Text = "Enter title price tag or part of title";
+                    break;
+                case 2:
+                    textBox1.Text = "Enter the exact price of the product";
+                    break;
+                case 3:
+                    textBox1.Text = "Enter a price to search less this price";
+                    break;
+                case 4:
+                    textBox1.Text = "Enter a price to search above this price";
+                    break;
+                case 5:
+                    textBox1.Text = "Enter description price tag or part of description";
+                    break;
+                case 6:
+                    textBox1.Text = "Enter the exact sale price of the product";
+                    break;
+                case 7:
+                    textBox1.Text = "Enter a price to search less this sale price";
+                    break;
+                case 8:
+                    textBox1.Text = "Enter a price to search above this price";
+                    break;
+            }
         }
     }
 }
