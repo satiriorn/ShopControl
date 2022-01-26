@@ -223,7 +223,8 @@ namespace ShopControl
                         }
                         else
                         {
-                            location_stream_camera = arrCamera[j-1].Location;
+                            if(counter_camera!=1)
+                                location_stream_camera = arrCamera[j-1].Location;
                             arrCamera[j] = null;
                         }
                     }
@@ -236,6 +237,7 @@ namespace ShopControl
         {
             for (int i = 0; i < counter_camera; i++)
                 this.kryptonPage2.Controls.Remove(arrCamera[i]);
+            counter_camera = 0;
         }
     }
 }

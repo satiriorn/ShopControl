@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CMenu));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonNavigator1 = new ComponentFactory.Krypton.Navigator.KryptonNavigator();
             this.kryptonPage1 = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.BtnShowAll = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.ComboBoxForSearch = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.DataGridView1 = new System.Windows.Forms.DataGridView();
             this.BtnSearch = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -53,10 +54,9 @@
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.kryptonPage2 = new ComponentFactory.Krypton.Navigator.KryptonPage();
+            this.BtnClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.BtnLoad = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.BtnAddNewStreamCamera = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.BtnShowAll = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.BtnClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
             this.kryptonNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage1)).BeginInit();
@@ -113,6 +113,16 @@
             this.kryptonPage1.ToolTipTitle = "Page ToolTip";
             this.kryptonPage1.UniqueName = "70E0B0FD9D0742057A9EC88454AB5B82";
             // 
+            // BtnShowAll
+            // 
+            this.BtnShowAll.Location = new System.Drawing.Point(589, 31);
+            this.BtnShowAll.Name = "BtnShowAll";
+            this.BtnShowAll.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparklePurple;
+            this.BtnShowAll.Size = new System.Drawing.Size(58, 26);
+            this.BtnShowAll.TabIndex = 34;
+            this.BtnShowAll.Values.Text = "Show All";
+            this.BtnShowAll.Click += new System.EventHandler(this.BtnShowAll_Click);
+            // 
             // ComboBoxForSearch
             // 
             this.ComboBoxForSearch.DropDownWidth = 121;
@@ -138,33 +148,33 @@
             // DataGridView1
             // 
             this.DataGridView1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            this.DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.DataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataGridView1.BackgroundColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridView1.DefaultCellStyle = dataGridViewCellStyle9;
             this.DataGridView1.GridColor = System.Drawing.Color.Black;
             this.DataGridView1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.DataGridView1.Location = new System.Drawing.Point(-1, 63);
@@ -330,6 +340,16 @@
             this.kryptonPage2.UniqueName = "474F9DB91AAB4D4D5E98EA91ACBD98EC";
             this.kryptonPage2.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.kryptonPage2_ControlRemoved);
             // 
+            // BtnClear
+            // 
+            this.BtnClear.Location = new System.Drawing.Point(131, 3);
+            this.BtnClear.Name = "BtnClear";
+            this.BtnClear.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparklePurple;
+            this.BtnClear.Size = new System.Drawing.Size(58, 26);
+            this.BtnClear.TabIndex = 34;
+            this.BtnClear.Values.Text = "Clear";
+            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
+            // 
             // BtnLoad
             // 
             this.BtnLoad.Location = new System.Drawing.Point(67, 3);
@@ -349,26 +369,6 @@
             this.BtnAddNewStreamCamera.TabIndex = 32;
             this.BtnAddNewStreamCamera.Values.Text = "Add";
             this.BtnAddNewStreamCamera.Click += new System.EventHandler(this.BtnAddNewStreamCamera_Click);
-            // 
-            // BtnShowAll
-            // 
-            this.BtnShowAll.Location = new System.Drawing.Point(589, 31);
-            this.BtnShowAll.Name = "BtnShowAll";
-            this.BtnShowAll.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparklePurple;
-            this.BtnShowAll.Size = new System.Drawing.Size(58, 26);
-            this.BtnShowAll.TabIndex = 34;
-            this.BtnShowAll.Values.Text = "Show All";
-            this.BtnShowAll.Click += new System.EventHandler(this.BtnShowAll_Click);
-            // 
-            // BtnClear
-            // 
-            this.BtnClear.Location = new System.Drawing.Point(131, 3);
-            this.BtnClear.Name = "BtnClear";
-            this.BtnClear.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparklePurple;
-            this.BtnClear.Size = new System.Drawing.Size(58, 26);
-            this.BtnClear.TabIndex = 34;
-            this.BtnClear.Values.Text = "Clear";
-            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
             // 
             // CMenu
             // 

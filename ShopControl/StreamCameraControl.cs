@@ -9,6 +9,8 @@ namespace ShopControl
     {
         private MJPEGStream stream;
         private Point location;
+        private Size normal_size;
+        private Size normal_camerabox_size;
         public bool full_camera = false;
         public StreamCameraControl(string link = "")
         {
@@ -68,18 +70,22 @@ namespace ShopControl
         {
             if (full_camera)
             {
-                this.Size = new Size(Parent.Size.Width - 5, Parent.Size.Height - 75);
-                CameraBox1.Size = new Size(Parent.Size.Width - 5, Parent.Size.Height - 75);
-                full_camera = false;
                 this.Location = location;
+                this.Size = normal_size;
+                CameraBox1.Size = normal_camerabox_size;
+                full_camera = false;
+                BtnFullCamera.Text = "🞑";
             }
             else
             {
+                normal_size = this.Size;
+                normal_camerabox_size = CameraBox1.Size;
+                location = this.Location;
+                this.Location = new Point(4, 30);
                 this.Size = new Size(Parent.Size.Width - 5, Parent.Size.Height - 75);
                 CameraBox1.Size = new Size(Parent.Size.Width - 5, Parent.Size.Height - 75);
-                location = this.Location;
-                this.Location = new Point(0, 4);
                 full_camera = true;
+                BtnFullCamera.Text = "⧉";
             }
         }
     }

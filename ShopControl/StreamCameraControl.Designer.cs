@@ -110,15 +110,17 @@
             this.BtnFullCamera.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparklePurple;
             this.BtnFullCamera.Size = new System.Drawing.Size(28, 26);
             this.BtnFullCamera.TabIndex = 39;
-            this.BtnFullCamera.Values.Text = "[ ]";
+            this.BtnFullCamera.Values.Text = "🞑";
             this.BtnFullCamera.Visible = false;
             this.BtnFullCamera.Click += new System.EventHandler(this.btnFullCamera_Click);
             // 
             // StreamCameraControl
             // 
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.Black;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.BtnFullCamera);
