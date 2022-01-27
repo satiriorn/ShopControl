@@ -1,6 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
@@ -28,9 +27,7 @@ namespace ShopControl
         private void BtnSignIn_Click(object sender, EventArgs e)
         {
             string ConnectionString = Environment.GetEnvironmentVariable("ConnectToDatabase");
-            MySqlConnection cnn;
-
-            cnn = new MySqlConnection(ConnectionString);
+            MySqlConnection cnn = new MySqlConnection(ConnectionString);
             try
             {
                 cnn.Open();

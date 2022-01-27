@@ -36,6 +36,8 @@
             this.BtnDisconnect = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.BtnClose = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.BtnFullCamera = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.BtnAddIntoDb = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.BtnRemoveFromDB = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             ((System.ComponentModel.ISupportInitialize)(this.CameraBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,6 +116,30 @@
             this.BtnFullCamera.Visible = false;
             this.BtnFullCamera.Click += new System.EventHandler(this.btnFullCamera_Click);
             // 
+            // BtnAddIntoDb
+            // 
+            this.BtnAddIntoDb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAddIntoDb.Location = new System.Drawing.Point(14, 3);
+            this.BtnAddIntoDb.Name = "BtnAddIntoDb";
+            this.BtnAddIntoDb.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparklePurple;
+            this.BtnAddIntoDb.Size = new System.Drawing.Size(28, 26);
+            this.BtnAddIntoDb.TabIndex = 40;
+            this.BtnAddIntoDb.Values.Text = "➕";
+            this.BtnAddIntoDb.Visible = false;
+            this.BtnAddIntoDb.Click += new System.EventHandler(this.BtnAddIntoDb_Click);
+            // 
+            // BtnRemoveFromDB
+            // 
+            this.BtnRemoveFromDB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnRemoveFromDB.Location = new System.Drawing.Point(38, 3);
+            this.BtnRemoveFromDB.Name = "BtnRemoveFromDB";
+            this.BtnRemoveFromDB.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparklePurple;
+            this.BtnRemoveFromDB.Size = new System.Drawing.Size(28, 26);
+            this.BtnRemoveFromDB.TabIndex = 41;
+            this.BtnRemoveFromDB.Values.Text = "☤";
+            this.BtnRemoveFromDB.Visible = false;
+            this.BtnRemoveFromDB.Click += new System.EventHandler(this.BtnRemoveFromDB_Click);
+            // 
             // StreamCameraControl
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
@@ -123,6 +149,8 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.Disable;
             this.BackColor = System.Drawing.Color.Black;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Controls.Add(this.BtnRemoveFromDB);
+            this.Controls.Add(this.BtnAddIntoDb);
             this.Controls.Add(this.BtnFullCamera);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.BtnDisconnect);
@@ -146,5 +174,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton BtnDisconnect;
         private ComponentFactory.Krypton.Toolkit.KryptonButton BtnClose;
         private ComponentFactory.Krypton.Toolkit.KryptonButton BtnFullCamera;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton BtnAddIntoDb;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton BtnRemoveFromDB;
     }
 }

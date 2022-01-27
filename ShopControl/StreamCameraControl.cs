@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using AForge.Video;
+using MySql.Data.MySqlClient;
 
 namespace ShopControl
 {
@@ -12,11 +13,14 @@ namespace ShopControl
         private Size normal_size;
         private Size normal_camerabox_size;
         public bool full_camera = false;
+        private bool load_camera = false;
         public StreamCameraControl(string link = "")
         {
             InitializeComponent();
-            if (link!="")
+            if (link != "") { 
                 Connect(link);
+                load_camera = true;
+            }
         }
         
         private void textBox1_TextChanged(object sender, EventArgs e) => textBox1.PasswordChar = '*';
@@ -58,6 +62,9 @@ namespace ShopControl
         {
             BtnClose.Visible = true;
             BtnFullCamera.Visible = true;
+            if (load_camera == false)
+                BtnAddIntoDb.Visible = true;
+            
         }
 
         private void StreamCameraControl_MouseLeave(object sender, EventArgs e)
@@ -87,6 +94,28 @@ namespace ShopControl
                 full_camera = true;
                 BtnFullCamera.Text = "⧉";
             }
+        }
+
+        private void BtnAddIntoDb_Click(object sender, EventArgs e)
+        {
+            if(stream != null) { 
+                if (stream.IsRunning) {
+                    try { 
+                        string ConnectionString = Environment.GetEnvironmentVariable("ConnectToDatabase");
+                        MySqlConnection cnn = new MySqlConnection(ConnectionString);
+                        MySqlCommand cmd = new MySqlCommand(String.Format("INSERT INTO StreamCamera(Link)values('{0}');", textBox1.Text), cnn);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(String.Format("Something went wrong:{0}", ex.ToString()));
+                    }
+                }
+            }
+        }
+
+        private void BtnRemoveFromDB_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
