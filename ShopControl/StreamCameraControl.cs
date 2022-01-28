@@ -60,17 +60,14 @@ namespace ShopControl
 
         private void CameraBox1_MouseHover(object sender, EventArgs e)
         {
-            BtnClose.Visible = true;
-            BtnFullCamera.Visible = true;
-            if (load_camera == false)
-                BtnAddIntoDb.Visible = true;
-            
+            BtnClose.Visible = BtnFullCamera.Visible = true;
+            if (load_camera == true || stream!=null)
+               BtnRemoveFromDB.Visible = BtnAddIntoDb.Visible = true;
         }
 
         private void StreamCameraControl_MouseLeave(object sender, EventArgs e)
         {
-            BtnClose.Visible = false;
-            BtnFullCamera.Visible = false;
+            BtnRemoveFromDB.Visible = BtnAddIntoDb.Visible = BtnClose.Visible = BtnFullCamera.Visible = false;
         }
 
         private void btnFullCamera_Click(object sender, EventArgs e)
@@ -98,24 +95,33 @@ namespace ShopControl
 
         private void BtnAddIntoDb_Click(object sender, EventArgs e)
         {
-            if(stream != null) { 
-                if (stream.IsRunning) {
-                    try { 
-                        string ConnectionString = Environment.GetEnvironmentVariable("ConnectToDatabase");
-                        MySqlConnection cnn = new MySqlConnection(ConnectionString);
-                        MySqlCommand cmd = new MySqlCommand(String.Format("INSERT INTO StreamCamera(Link)values('{0}');", textBox1.Text), cnn);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(String.Format("Something went wrong:{0}", ex.ToString()));
-                    }
+            if (stream.IsRunning) {
+                try { 
+                    string ConnectionString = Environment.GetEnvironmentVariable("ConnectToDatabase");
+                    MySqlConnection cnn = new MySqlConnection(ConnectionString);
+                    MySqlCommand cmd = new MySqlCommand(String.Format("INSERT INTO StreamCamera(Link)values('{0}');", textBox1.Text), cnn);
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(String.Format("Something went wrong:{0}", ex.ToString()));
                 }
             }
         }
 
         private void BtnRemoveFromDB_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                string ConnectionString = Environment.GetEnvironmentVariable("ConnectToDatabase");
+                MySqlConnection cnn = new MySqlConnection(ConnectionString);
+                MySqlCommand cmd = new MySqlCommand(String.Format("DELETE FROM StreamCamera Where Link = '{0}';", textBox1.Text), cnn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(String.Format("Something went wrong:{0}", ex.ToString()));
+            }
         }
     }
 }
