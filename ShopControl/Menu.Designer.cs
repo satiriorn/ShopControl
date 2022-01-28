@@ -57,6 +57,7 @@
             this.BtnClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.BtnLoad = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.BtnAddNewStreamCamera = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.BtnDropProfile = new ComponentFactory.Krypton.Toolkit.KryptonDropButton();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonNavigator1)).BeginInit();
             this.kryptonNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPage1)).BeginInit();
@@ -370,12 +371,24 @@
             this.BtnAddNewStreamCamera.Values.Text = "Add";
             this.BtnAddNewStreamCamera.Click += new System.EventHandler(this.BtnAddNewStreamCamera_Click);
             // 
+            // BtnDropProfile
+            // 
+            this.BtnDropProfile.Location = new System.Drawing.Point(921, 0);
+            this.BtnDropProfile.Name = "BtnDropProfile";
+            this.BtnDropProfile.Palette = this.kryptonPalette1;
+            this.BtnDropProfile.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.BtnDropProfile.Size = new System.Drawing.Size(120, 23);
+            this.BtnDropProfile.StateCommon.Content.Padding = new System.Windows.Forms.Padding(0);
+            this.BtnDropProfile.TabIndex = 1;
+            this.BtnDropProfile.Values.Text = "Profile";
+            // 
             // CMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1044, 459);
+            this.Controls.Add(this.BtnDropProfile);
             this.Controls.Add(this.kryptonNavigator1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CMenu";
@@ -424,5 +437,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonComboBox ComboBoxForSearch;
         private ComponentFactory.Krypton.Toolkit.KryptonButton BtnShowAll;
         private ComponentFactory.Krypton.Toolkit.KryptonButton BtnClear;
+        private ComponentFactory.Krypton.Toolkit.KryptonDropButton BtnDropProfile;
     }
 }

@@ -12,16 +12,19 @@ namespace ShopControl
         private string ConnectionString = Environment.GetEnvironmentVariable("ConnectToDatabase");
         private int camera_stream_width = 330;
         private int camera_stream_height = 260;
+        private string profile_name;
         private BindingSource bindingSource;
         private DataSet ds;
         private DataTable dataTable;
         private Point location_stream_camera;
         private int counter_camera;
         private StreamCameraControl[] arrCamera;
-        public CMenu()
+        public CMenu(string name = "Guest")
         {
             InitializeComponent();
             counter_camera = 0;
+            profile_name = name;
+            BtnDropProfile.Text = name;
             DataGridView1.ForeColor = Color.White;
             bindingSource = new BindingSource();
             ds = new DataSet();

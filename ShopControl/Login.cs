@@ -40,7 +40,7 @@ namespace ShopControl
                     {
                         while (rdr.Read())
                         {
-                            Form form = new CMenu();
+                            Form form = new CMenu(textBox1.Text);
                             this.Hide();
                             form.Closed += (s, args) => this.Close();
                             form.Show();
