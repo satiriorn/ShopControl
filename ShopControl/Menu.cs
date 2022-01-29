@@ -24,7 +24,7 @@ namespace ShopControl
             InitializeComponent();
             counter_camera = 0;
             profile_name = name;
-            BtnDropProfile.Text = name;
+            BtnProfileDropDown.Text = name;
             DataGridView1.ForeColor = Color.White;
             bindingSource = new BindingSource();
             ds = new DataSet();
@@ -241,6 +241,16 @@ namespace ShopControl
             for (int i = 0; i < counter_camera; i++)
                 this.kryptonPage2.Controls.Remove(arrCamera[i]);
             counter_camera = 0;
+        }
+
+        private void BtnProfileDropDown_Click(object sender, EventArgs e)
+        {
+            kryptonPanel1.Height = 73;
+        }
+
+        private void kryptonNavigator1_Click(object sender, EventArgs e)
+        {
+            kryptonPanel1.Height = 22;
         }
     }
 }
