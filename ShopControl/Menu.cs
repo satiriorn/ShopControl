@@ -252,5 +252,18 @@ namespace ShopControl
         {
             kryptonPanel1.Height = 22;
         }
+
+        private void BtnSettings_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnSignOut_Click(object sender, EventArgs e)
+        {
+            Form form = new CLoginForm();
+            this.Hide();
+            form.Closed += (s, args) => this.Close();
+            form.Show();
+        }
     }
 }
